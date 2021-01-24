@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect'
 import './header.styles.scss';
@@ -9,32 +8,34 @@ import { auth } from '../../config/firebase.utils';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selector';
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionHeaderDiv, OptionHeaderLink } from './header.styles';
+
 const Header = ({ currentUser, cart }) => (
-    <div className='header'>
-        <Link className='logo-container' to='/'>
+    <HeaderContainer>
+        <LogoContainer to='/'>
             <Logo className='logo' />
-        </Link>
-        <div className='options'>
-            <Link className='option' to='/shop'>
+        </LogoContainer>
+        <OptionsContainer>
+            <OptionHeaderLink to='/shop'>
                 SHOP
-            </Link>
-            <Link className='option' to='/shop'>
+            </OptionHeaderLink>
+            <OptionHeaderLink to='/shop'>
                 CONTACT
-            </Link>
+            </OptionHeaderLink>
             {
                 currentUser?
-                <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div> :
-                <Link className='option' to='/signin'>SIGN IN</Link>
+                <OptionHeaderDiv onClick={() => auth.signOut()}>SIGN OUT</OptionHeaderDiv> :
+                <OptionHeaderLink to='/signin'>SIGN IN</OptionHeaderLink>
             }
             <CartIcon />
-        </div>
+        </OptionsContainer>
         {
                 cart ? null :
                 <CartDropdown /> 
                 
         }
         
-    </div>
+    </HeaderContainer>
 )
 
 const mapStateToProps = createStructuredSelector({
