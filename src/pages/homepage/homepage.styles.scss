@@ -5,3 +5,9 @@
     padding: 20px 80px;
   }
   
+  @media only screen and (max-width: 768px) {
+    .homepage {
+      flex-wrap: wrap;
+      padding: 15px 10px;
+    }
+  }

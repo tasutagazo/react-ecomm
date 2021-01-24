@@ -14,3 +14,10 @@
     }
   }
   
+  @media only screen and (max-width: 768px) {
+    .collection-preview {
+      .preview {
+        flex-wrap: wrap;
+      }
+    }
+}

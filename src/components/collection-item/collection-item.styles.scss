@@ -50,3 +50,11 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .collection-item {
+    width: 48vw;
+    margin: 0px;
+    padding: 15px;
+  }
+}
