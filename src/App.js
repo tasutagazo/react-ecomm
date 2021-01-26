@@ -12,7 +12,6 @@ import { selectCurrentUser } from './redux/user/user.selector';
 import { auth, createUserProfileDocument } from './config/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { createStructuredSelector } from 'reselect'
-
 class App extends React.Component {
 
   unsubscribeFromAuth = null;
@@ -32,7 +31,6 @@ class App extends React.Component {
         })
       } 
       setCurrentUser(userAuth);
-      
 
     })
   }
