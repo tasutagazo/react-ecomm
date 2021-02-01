@@ -14,7 +14,7 @@ export function* fetchCollections() {
         const snapshot = yield collectionRef.get();
         const collectionsMap = yield call(convertCollectionsSnapshotToMap, snapshot);
         yield put(fetchCollectionsSuccess(collectionsMap))
-
+        
     }catch(e){
         console.log(e);
         yield put(fetchCollectionsFailure(e.message))
